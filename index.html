@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Whack A Mole!</title>
+  <link href='https://fonts.googleapis.com/css?family=Amatic+SC:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>Whack-a-mole! <span class="score">0</span></h1>
+  <button id="start-btn">Start!</button>
+  <div id="clock">5</div>
+
+  <div class="game">
+    <div class="hole hole1">
+      <div class="mole"></div>
+    </div>
+    <div class="hole hole2">
+      <div class="mole"></div>
+    </div>
+    <div class="hole hole3">
+      <div class="mole"></div>
+    </div>
+    <div class="hole hole4">
+      <div class="mole"></div>
+    </div>
+    <div class="hole hole5">
+      <div class="mole"></div>
+    </div>
+    <div class="hole hole6">
+      <div class="mole"></div>
+    </div>
+  </div>
+
+<script>
+  let lastHole
+
+  const holes = document.querySelectorAll('.hole');
+  const scoreBoard = document.querySelector('.score');
+  const moles = document.querySelectorAll('.mole');
+  const startBtn = document.getElementById('start-btn')
+  const clock = document.getElementById('clock')
+
+  function appear(hole) {
+    hole.classList.add('up');
+  }
+
+  function disappear(hole) {
+    hole.classList.remove('up');
+  }
+
+  function randomTime(min, max) {
+    return Math.round(Math.random() * (max - min) + min);
+  }
+
+  function randomHole(holes) {
+    const idx = Math.floor(Math.random() * holes.length);
+    const hole = holes[idx];
+    if (hole === lastHole) {
+      return randomHole(holes);
+    }
+    return hole;
+  }
+
+  function peep() {
+    //moles start peeping and hiding
+  }
+
+  function start() {
+    //start game
+  }
+
+  function end() {
+    //end game
+  }
+
+  startBtn.onclick = () => {
+    start()
+    peep()
+    setTimeout(end, 5000)
+  }
+
+  function whack(e) {
+    // hide mole when whacked
+    e.target.parentNode.classList.remove('up');
+  }
+
+  // attach 'whack' event to all moles
+  moles.forEach(mole => mole.onclick = whack)
+
+  function countdown() {
+    // please implement clock countdown
+  }
+
+
+</script>
+</body>
+</html>
