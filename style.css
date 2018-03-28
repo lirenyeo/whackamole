@@ -93,7 +93,7 @@ button:disabled {
   top:0;
 }
 
-#timer {
+#clock {
   position: fixed;
   top: 20px;
   left: 20px;
